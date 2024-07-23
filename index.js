@@ -15,29 +15,45 @@ function reveal() {
 		}
 	}
 }
+
 document
 	.getElementById("contactForm")
-	.addEventListener("submit", function (event) {
-		event.preventDefault(); // Evitar que el formulario se envíe de manera tradicional
-
-		var formData = new FormData(this);
-		var xhr = new XMLHttpRequest();
-
+	.addEventListener("submit", async function (event) {
+		event.preventDefault();
+		document.getElementById("btnSub").setAttribute("disabled", "disabled");
+		// Evitar que el formulario se envíe de manera tradicional
+		// await new Promise(() => setTimeout(() => {
+		// 	const r = {	
+		// 		status:"success",	
+		// 		message: "esto es un test",
+		// 	};
+		// 	handleResponse(r);
+		// }, 1000)
+		// )
+	
+		let formData = new FormData(this);
+		let xhr = new XMLHttpRequest();
 		xhr.open("POST", "contact.php", true);
 		xhr.onload = function () {
 			console.log(xhr);
 			if (xhr.status === 200) {
-				var response = JSON.parse(xhr.responseText);
-				var formResponse = document.getElementById("form-message");
-				//formResponse.innerHTML = response.message;
-				if (response.status === "success") {
-					formResponse.style.color = "green";
-				} else {
-					formResponse.style.color = "red";
-				}
+				let response = JSON.parse(xhr.responseText);
+				handleResponse(response);
 			} else {
 				alert("An error occurred!");
 			}
 		};
 		xhr.send(formData);
 	});
+
+const handleResponse = (response) => {
+	const formResponse = document.getElementById("form-message");
+	formResponse.innerHTML = "";
+	formResponse.innerHTML = response.message;
+	if (response.status === "success") {
+		formResponse.style.color = "green";
+	} else {
+		formResponse.style.color = "red";
+	}
+	document.getElementById("btnSub").removeAttribute("disabled");
+};
