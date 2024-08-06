@@ -56,14 +56,14 @@
     align-items: center;
   }
   .logo{
-    width: 150px; 
+    width: 100px; 
     padding-right: 10px;
   }
  .hero-container {
     background: url() no-repeat center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    
   }
   .hero{
     margin: 50px 25px;
@@ -77,7 +77,7 @@
   }
   .nav-btns a{
     color: #ffff;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 200;
   }
   .nav-btns p{
@@ -226,6 +226,14 @@
     transform: translateY(0px);
     opacity: 1;
   }
+  @media only screen and (min-width: 750px){
+    .logo{
+      width: 150px;
+    }
+    .nav-btns a{
+      font-size: 16px;
+    }
+  }
   @media only screen and (min-width: 1000px){
     h1{
       font-size: 60px;
@@ -233,7 +241,9 @@
     h2{
       font-size: 30px;
     }
-
+    .logo{
+      width: 170px;
+    }
     .logo-container p{
       font-size: 20px;
     }
