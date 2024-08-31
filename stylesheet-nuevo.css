@@ -63,7 +63,6 @@
     background: url() no-repeat center center;
     background-repeat: no-repeat;
     background-size: cover;
-    
   }
   .hero{
     margin: 50px 25px;
@@ -86,6 +85,9 @@
     padding: 10px;
     margin-right: 20px;
   }
+  .calendly-link{
+  text-align: center;
+  }
   .boton {
     color: white;
     background: linear-gradient(180deg, #0AD2F1 -26.87%, #2599F4 75.62%);
@@ -94,7 +96,6 @@
     padding: 10px;
     display: block;
     margin:  auto;
-    text-align: center;
     width: 25%;
   }
 
